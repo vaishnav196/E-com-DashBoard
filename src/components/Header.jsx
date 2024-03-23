@@ -26,8 +26,12 @@ function Header() {
               <Link className="nav-link" to="/profile">Profile</Link>
             </li>
             <li className="nav-item">
+              <Link className="nav-link" to="/SignUp">SignUp</Link>
+            </li>
+            <li className="nav-item">
               <button className="btn btn-primary" to="/logout">Logout</button>
             </li>
+           
           </ul>
         </div>
       </div>
