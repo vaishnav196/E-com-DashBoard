@@ -21,6 +21,7 @@ const [error,setError]=useState("")
     try{
  const data=await axios.post(`${url}/register`,formData)
     console.log(data);
+    localStorage.setItem('userDetails',data)
     }
     catch(error){
 setError(error.message);
