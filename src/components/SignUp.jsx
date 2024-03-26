@@ -1,21 +1,31 @@
 import React, { useState } from "react";
+import axios from 'axios';
 
+
+let url="http://localhost:5000"
 const SignUp = () => {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
     password: "",
   });
-
+const [error,setError]=useState("")
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // Handle form submission, e.g., send data to backend
-    console.log(formData);
+
+    try{
+ const data=await axios.post(`${url}/register`,formData)
+    console.log(data);
+    }
+    catch(error){
+setError(error.message);
+    }
+  
   };
 
   return (
