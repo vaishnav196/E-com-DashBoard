@@ -12,6 +12,7 @@ import AddProducts from './components/AddProducts';
 import UpdateProducts from './components/UpdateProducts';
 import Profile from './components/Profile';
 import PrivateComponent from './components/PrivateComponent';
+import Login from './components/Login';
 // import { Link } from 'react-router-dom';
 function App() {
   return (
@@ -27,6 +28,7 @@ function App() {
           <Route path="profile" element={<Profile/>} />
           {/* </Route> */}
           <Route path="SignUp" element={<SignUp/>} />
+          <Route path="login" element={<Login/>} />
         </Routes>
      
        <Footer/>

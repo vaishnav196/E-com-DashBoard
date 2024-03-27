@@ -31,6 +31,9 @@ const navigate=useNavigate();
             <h6 className="nav-item">
               <Link className="nav-link" to="/SignUp">SignUp</Link>
             </h6>
+            <h6 className="nav-item">
+              <Link className="nav-link" to="/login">Login</Link>
+            </h6>
             <li className="nav-item">
               <button className="btn btn-primary" to="/logout">Logout</button>
             </li>

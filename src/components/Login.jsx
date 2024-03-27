@@ -4,14 +4,14 @@ import axios from 'axios';
 
 let url="http://localhost:5000"
 
-const SignUp = () => {
+const Login = () => {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
     password: "",
   });
 
-// const [error,setError]=useState("")
+
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -22,7 +22,7 @@ const SignUp = () => {
     e.preventDefault();
   //  console.log(formData)
 
-    axios.post(`${url}/signup`,formData).then((data)=>{
+    axios.post(`${url}/login`,formData).then((data)=>{
       console.log(data);
     });
     
@@ -32,7 +32,7 @@ const SignUp = () => {
     <div className="container-md ">
       <div className="row">
         <div className="col-md-12">
-          <h2 className="text-center">Signup</h2>
+          <h1 className="text-center fw-bolder mt-3 ">Login</h1>
           <form onSubmit={handleSubmit} className="d-block m-auto w-50">
             <div className="mb-3">
               <label htmlFor="name" className="form-label">
@@ -88,4 +88,4 @@ const SignUp = () => {
     </div>
   );
 };
-export default SignUp;
+export default Login;
