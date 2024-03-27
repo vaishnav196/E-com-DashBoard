@@ -19,11 +19,13 @@ const Login = () => {
 
     try {
       const response = await axios.post(`${url}/login`, formData);
-      console.log(response.data); // Assuming backend sends some token or user information upon successful login
-      // You can handle the response here, such as storing tokens in local storage or redirecting the user to another page
+      console.log(response.data); 
+      if(response.data.name){
+        localStorage.setItem("user",JSON.stringify(response.data))
+      }
     } catch (error) {
       console.error("Login failed:", error.response.data);
-      // Handle login error, display message to the user, etc.
+     
     }
   };
 
