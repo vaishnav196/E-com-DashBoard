@@ -19,13 +19,13 @@ function App() {
  <Router>
        <Header/>
         <Routes>
-          <Route element={<PrivateComponent/>}>
+          {/* <Route element={<PrivateComponent/>}> */}
           <Route path="/" element={<Products/>} />
           <Route path="Products" element={<Products/>} />
           <Route path="add-products" element={<AddProducts/>} />
           <Route path="update-products" element={<UpdateProducts/>} />
           <Route path="profile" element={<Profile/>} />
-          </Route>
+          {/* </Route> */}
           <Route path="SignUp" element={<SignUp/>} />
         </Routes>
      

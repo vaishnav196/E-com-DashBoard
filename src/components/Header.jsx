@@ -5,10 +5,7 @@ import {Link, useNavigate} from "react-router-dom"
 // import "bootstrap/dist/js/bootstrap.min.js"
 function Header() {
 const navigate=useNavigate();
-  const auth=localStorage.getItem('userDetail');
-  if(auth){
-    navigate("/")
-  }
+ 
   return (
     <div className=''>
       <nav className="navbar navbar-expand-lg   bg-nav ms-auto ">

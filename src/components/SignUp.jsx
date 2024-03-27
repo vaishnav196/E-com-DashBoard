@@ -3,13 +3,16 @@ import axios from 'axios';
 
 
 let url="http://localhost:5000"
+
 const SignUp = () => {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
     password: "",
   });
-const [error,setError]=useState("")
+
+// const [error,setError]=useState("")
+
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
@@ -17,17 +20,16 @@ const [error,setError]=useState("")
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+  //  console.log(formData)
 
-   
- const data=await axios.post(`${url}/register`,formData)
-    console.log(data);
-    // localStorage.setItem('userDetails',formData)
- 
-   
+    axios.post(`${url}/signup`,formData).then((data)=>{
+      console.log(data);
+    });
+    
   };
 
   return (
-    <div className="container ">
+    <div className="container-md ">
       <div className="row">
         <div className="col-md-6">
           <h2>Signup</h2>
@@ -79,12 +81,11 @@ const [error,setError]=useState("")
             </button>
           </form>
         </div>
-        {/* <div className="col-md-6">
-            <img src="" alt="" />
-        </div> */}
+        <div className="col-md-6 ">
+            <img src="img/signup.jpg" alt="" className="img-fluid h-75 d-block m-auto" />
+        </div>
       </div>
     </div>
   );
 };
-
 export default SignUp;
