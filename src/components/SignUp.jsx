@@ -30,6 +30,7 @@ const SignUp = () => {
     try {
       const response = await axios.post(`${url}/signup`, formData);
       console.log(response.data);
+      localStorage.setItem("userDetail",JSON.stringify(response.data));
       navigate("/login");
     } catch (error) {
       console.error("Signup failed:", error.response.data);
