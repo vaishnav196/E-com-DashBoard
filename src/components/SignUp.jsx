@@ -18,15 +18,12 @@ const [error,setError]=useState("")
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    try{
+   
  const data=await axios.post(`${url}/register`,formData)
     console.log(data);
-    localStorage.setItem('userDetails',data)
-    }
-    catch(error){
-setError(error.message);
-    }
-  
+    // localStorage.setItem('userDetails',formData)
+ 
+   
   };
 
   return (
