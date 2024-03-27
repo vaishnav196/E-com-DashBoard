@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import axios from 'axios';
+import { useNavigate } from "react-router-dom";
 
-
-let url="http://localhost:5000"
+const url = "http://localhost:5000";
 
 const SignUp = () => {
   const [formData, setFormData] = useState({
@@ -10,8 +10,8 @@ const SignUp = () => {
     email: "",
     password: "",
   });
-
-// const [error,setError]=useState("")
+  const [error, setError] = useState(null);
+  const navigate = useNavigate();
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -20,20 +20,31 @@ const SignUp = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-  //  console.log(formData)
 
-    axios.post(`${url}/signup`,formData).then((data)=>{
-      console.log(data);
-    });
-    
+    // Validation
+    if (!formData.name || !formData.email || !formData.password) {
+      setError("Please fill in all fields.");
+      return;
+    }
+
+    try {
+      const response = await axios.post(`${url}/signup`, formData);
+      console.log(response.data);
+      navigate("/login");
+    } catch (error) {
+      console.error("Signup failed:", error.response.data);
+      // Handle signup error, display message to the user, etc.
+    }
   };
 
   return (
-    <div className="container-md ">
+    <div className="container-md">
       <div className="row">
         <div className="col-md-12">
-          <h1 className="text-center mt-4  fw-bolder ">Signup</h1>
+          <h1 className="text-center mt-4 fw-bolder">Signup</h1>
+          
           <form onSubmit={handleSubmit} className="d-block m-auto w-25">
+          {error && <div className="alert alert-danger">{error}</div>}
             <div className="mb-3">
               <label htmlFor="name" className="form-label">
                 Name
@@ -81,11 +92,9 @@ const SignUp = () => {
             </button>
           </form>
         </div>
-        {/* <div className="col-md-6 ">
-            <img src="img/signup.jpg" alt="" className="img-fluid h-75 d-block m-auto" />
-        </div> */}
       </div>
     </div>
   );
 };
+
 export default SignUp;
