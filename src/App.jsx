@@ -11,7 +11,7 @@ import SignUp from './components/SignUp';
 import AddProducts from './components/AddProducts';
 import UpdateProducts from './components/UpdateProducts';
 import Profile from './components/Profile';
-import PrivateComponent from './components/PrivateComponent';
+// import PrivateComponent from './components/PrivateComponent';
 import Login from './components/Login';
 // import { Link } from 'react-router-dom';
 function App() {

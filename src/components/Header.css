@@ -2,13 +2,14 @@
     /* background-color: rgba(120, 178, 236, 0.877) ; */
     background-color: rgba(57, 156, 255, 0.877) ;
   }
-  h6{
-   /* border: 1px solid black; */
-  font-weight: bold;
+ .nav-link{
+   /* border: 1px solid rgb(255, 255, 255); */
+  font-weight: 700;
+  color: rgb(255, 255, 255);
     /* padding: 2px 0px; */
    margin-right: 20px;
   }
   h6:hover{
-   color: rgb(255, 178, 178);
+   color: rgb(255, 1, 1);
   }
   
