@@ -32,8 +32,8 @@ const SignUp = () => {
     <div className="container-md ">
       <div className="row">
         <div className="col-md-12">
-          <h2 className="text-center">Signup</h2>
-          <form onSubmit={handleSubmit} className="d-block m-auto w-50">
+          <h1 className="text-center mt-4  fw-bolder ">Signup</h1>
+          <form onSubmit={handleSubmit} className="d-block m-auto w-25">
             <div className="mb-3">
               <label htmlFor="name" className="form-label">
                 Name

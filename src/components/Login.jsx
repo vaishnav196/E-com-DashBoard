@@ -1,17 +1,13 @@
 import React, { useState } from "react";
 import axios from 'axios';
 
-
-let url="http://localhost:5000"
+const url = "http://localhost:5000";
 
 const Login = () => {
   const [formData, setFormData] = useState({
-    name: "",
     email: "",
     password: "",
   });
-
-
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -20,34 +16,23 @@ const Login = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-  //  console.log(formData)
 
-    axios.post(`${url}/login`,formData).then((data)=>{
-      console.log(data);
-    });
-    
+    try {
+      const response = await axios.post(`${url}/login`, formData);
+      console.log(response.data); // Assuming backend sends some token or user information upon successful login
+      // You can handle the response here, such as storing tokens in local storage or redirecting the user to another page
+    } catch (error) {
+      console.error("Login failed:", error.response.data);
+      // Handle login error, display message to the user, etc.
+    }
   };
 
   return (
-    <div className="container-md ">
+    <div className="container-md">
       <div className="row">
         <div className="col-md-12">
-          <h1 className="text-center fw-bolder mt-3 ">Login</h1>
-          <form onSubmit={handleSubmit} className="d-block m-auto w-50">
-            <div className="mb-3">
-              <label htmlFor="name" className="form-label">
-                Name
-              </label>
-              <input
-                type="text"
-                className="form-control"
-                id="name"
-                name="name"
-                value={formData.name}
-                onChange={handleChange}
-                placeholder="Enter Your Name"
-              />
-            </div>
+          <h1 className="text-center fw-bolder mt-3">Login</h1>
+          <form onSubmit={handleSubmit} className="d-block m-auto w-25">
             <div className="mb-3">
               <label htmlFor="email" className="form-label">
                 Email address
@@ -60,6 +45,7 @@ const Login = () => {
                 value={formData.email}
                 onChange={handleChange}
                 placeholder="example@gmail.com"
+                required
               />
             </div>
             <div className="mb-3">
@@ -74,18 +60,17 @@ const Login = () => {
                 value={formData.password}
                 onChange={handleChange}
                 placeholder="Enter Password"
+                required
               />
             </div>
             <button type="submit" className="btn btn-primary m-auto d-block w-50">
-              Signup
+              Login
             </button>
           </form>
         </div>
-        {/* <div className="col-md-6 ">
-            <img src="img/signup.jpg" alt="" className="img-fluid h-75 d-block m-auto" />
-        </div> */}
       </div>
     </div>
   );
 };
+
 export default Login;
