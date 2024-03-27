@@ -1,11 +1,12 @@
 import React from 'react'
 import {Link, useNavigate} from "react-router-dom"
-
-// import "bootstrap/dist/css/bootstrap.min.css";
-// import "bootstrap/dist/js/bootstrap.min.js"
+import './Header.css';
 function Header() {
 const navigate=useNavigate();
- 
+  const logout=()=>{
+    localStorage.clear();
+    navigate("/signup")
+  }
   return (
     <div className=''>
       <nav className="navbar navbar-expand-lg   bg-nav ms-auto ">
@@ -34,9 +35,9 @@ const navigate=useNavigate();
             <h6 className="nav-item">
               <Link className="nav-link" to="/login">Login</Link>
             </h6>
-            <li className="nav-item">
-              <Link className="btn btn-primary" to="/logout">Logout</Link>
-            </li>
+            <h6 className="nav-item">
+              <Link className="nav-link" onClick={logout} to="/signup">Logout</Link>
+            </h6>
            
           </ul>
         </div>
