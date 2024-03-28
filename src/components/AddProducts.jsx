@@ -45,23 +45,21 @@ const AddProducts = () => {
         />
       </div>
 
+    
       <div className="mb-3">
         <label htmlFor="category" className="form-label">Category</label>
-        <select
-          className="form-select"
+        <input
+          type="text"
+          className="form-control"
           id="category"
+          placeholder="Enter category"
           value={category}
           onChange={(e) => setCategory(e.target.value)}
-        >
-          <option value="">Select category</option>
-          <option value="Electronics">Electronics</option>
-          <option value="Clothing">Clothing</option>
-          <option value="Books">Books</option>
-          {/* Add more options as needed */}
-        </select>
+        />
       </div>
 
-      <button type="submit" className="btn btn-primary">Submit</button>
+
+      <button type="submit" className="btn btn-primary d-block m-auto w-75">Submit</button>
     </form>
       </div>
     </div>
