@@ -1,7 +1,7 @@
 import React from 'react';
 import {Navigate, navigate,Outlet} from 'react-router-dom';
 const PrivateComponent=()=>{
-    const auth=localStorage.getItem('userDetail')
+    const auth=localStorage.getItem('user')
     return auth?<Outlet/>:<Navigate to="/signup"/>
 }
 
