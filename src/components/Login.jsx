@@ -1,14 +1,17 @@
 import React, { useState } from "react";
 import axios from 'axios';
+import {useNavigate } from "react-router-dom";
 
 const url = "http://localhost:5000";
+ const auth=localStorage.getItem("userDetail");
+
 
 const Login = () => {
   const [formData, setFormData] = useState({
     email: "",
     password: "",
   });
-
+  const navigate= useNavigate();
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
@@ -22,6 +25,7 @@ const Login = () => {
       console.log(response.data); 
       if(response.data.name){
         localStorage.setItem("user",JSON.stringify(response.data))
+       
       }
     } catch (error) {
       console.error("Login failed:", error.response.data);

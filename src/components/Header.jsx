@@ -1,10 +1,16 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import {Link, useNavigate} from "react-router-dom"
 import './Header.css';
 function Header() {
 const navigate=useNavigate();
 
- const auth=localStorage.getItem('userDetail')
+const auth=localStorage.getItem('user');
+useEffect(()=>{
+if(auth){
+ 
+}
+})
+
 
   const logout=()=>{
     localStorage.clear();

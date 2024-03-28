@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import axios from 'axios';
 import { useNavigate } from "react-router-dom";
 
-const url = "http://localhost:5000";
+const url ="http://localhost:5000";
 
 const SignUp = () => {
   const [formData, setFormData] = useState({
