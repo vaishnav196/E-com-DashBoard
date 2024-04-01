@@ -26,13 +26,14 @@ function Products() {
     return (
         <div>
             <h1>Products are here</h1>
-            <ul>
+            <div className="product-cards ">
                 {products.map(product => (
-                    <li key={product._id}>
-                        <strong>{product.name}</strong> - ${product.price}
-                    </li>
+                    <div key={product._id} className="product-card card w-25">
+                        <h2>{product.name}</h2>
+                        <p>Price: ${product.price}</p>
+                    </div>
                 ))}
-            </ul>
+            </div>
         </div>
     );
 }
