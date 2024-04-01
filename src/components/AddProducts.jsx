@@ -1,11 +1,13 @@
 import axios from 'axios';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
 const AddProducts = () => {
   const [productName, setProductName] = useState('');
   const [price, setPrice] = useState('');
   const [category, setCategory] = useState('');
   const url = "http://localhost:5000";
+
+
   const handleSubmit =  async (event) => {
     try {
       const response = await axios.post(`${url}/addProduct`, {
