@@ -1,18 +1,30 @@
+import axios from 'axios';
 import React, { useState } from 'react';
 
 const AddProducts = () => {
   const [productName, setProductName] = useState('');
   const [price, setPrice] = useState('');
   const [category, setCategory] = useState('');
+  const url = "http://localhost:5000";
+  const handleSubmit =  async (event) => {
+    try {
+      const response = await axios.post(`${url}/addProduct`, {
+          name: productName,
+          price: price,
+          category:category
+         
+      });
 
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    console.log('Product Name:', productName);
-    console.log('Price:', price);
-    console.log('Category:', category);
-    setProductName('');
-    setPrice('');
-    setCategory('');
+      if (response.status === 201) {
+          // Handle success, maybe redirect or show a success message
+          console.log('Product saved successfully!');
+      } else {
+          // Handle error, maybe show an error message
+          console.error('Failed to save product:', response.data);
+      }
+  } catch (error) {
+      console.error('Error:', error);
+  }
   };
 
   return (
