@@ -39,9 +39,10 @@ function Products() {
   };
   return (
     <div>
-        <h1 className="text-md-center">Products</h1>
+       
       <h1 className="text-center">Products </h1>
-      <table className="table table-dark table-striped container">
+      <div className="container-fluid p-0">
+      <table className="table table-dark table-striped  ">
         <thead>
           <tr>
             <th>Sr.No</th>
@@ -64,29 +65,10 @@ function Products() {
           ))}
         </tbody>
       </table>
-
-      <div className="container-fluid">
-        <div className="row">
-         
-            {products.map((product, i) => (
-                <div className="col-md-4 mb-3"  key={product._id}>
-  <div className="card" style={{ width: "30rem" }}>
-                <img src="..." className="card-img" alt="..." />
-                <div className="card-body">
-                  <h5 className="card-title">{product.name}</h5>
-                  <h5 className="card-title">{product.category}</h5>
-                  <p className="card-text">{product.price}</p>
-                  <button href="" className="btn btn-primary d-block  m-auto w-100">
-                    Add to cart
-                  </button>
-                </div>
-              </div>
-                </div>
-            
-            ))}
-         
-        </div>
       </div>
+     
+
+     
     </div>
   );
 }
