@@ -1,13 +1,30 @@
 import axios from 'axios';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
+import { useParams } from 'react-router-dom';
 
 const UpdateProducts = () => {
   const [productName, setProductName] = useState('');
   const [price, setPrice] = useState('');
   const [category, setCategory] = useState('');
   const url = "http://localhost:5000";
+  const params = useParams();
 
-  const handleSubmit = async (event) => {
+  useEffect(() => {
+    const getProductDetails = async () => {
+      try {
+        const response = await axios.get(`${url}/product/${params.id}`);
+        const product = response.data;
+        setProductName(product.name);
+        setPrice(product.price);
+        setCategory(product.category);
+      } catch (error) {
+        console.error('Error fetching product:', error);
+      }
+    };
+    getProductDetails();
+  }, [params.id]);
+
+  const updateProduct = async (event) => {
     event.preventDefault();
     
     // Check if any field is empty
@@ -15,8 +32,6 @@ const UpdateProducts = () => {
       // console.error('At least one field is required!');
       return;
     }
-
-    // Only proceed if any field is filled
     console.log(productName, price, category);
   };
 
@@ -25,7 +40,7 @@ const UpdateProducts = () => {
       <h1 className='text-center'>Update Products</h1>
       <div className="row">
         <div className="col-6 d-block m-auto">
-          <form onSubmit={handleSubmit}>
+          <form onSubmit={updateProduct}>
             <div className="mb-3">
               <label htmlFor="productName" className="form-label">Product Name</label>
               <input
