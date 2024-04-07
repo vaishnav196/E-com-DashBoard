@@ -34,7 +34,7 @@ const UpdateProducts = () => {
     }
 
     try {
-      const response = await axios.put(`${url}/updateProduct/${params.id}`, {
+      const response = await axios.put(`${url}/product/${params.id}`, {
         name: productName,
         price: price,
         category: category
