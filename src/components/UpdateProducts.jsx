@@ -32,6 +32,24 @@ const UpdateProducts = () => {
       // console.error('At least one field is required!');
       return;
     }
+
+    try {
+      const response = await axios.put(`${url}/updateProduct/${params.id}`, {
+        name: productName,
+        price: price,
+        category: category
+      });
+
+      if (response.status === 200) {
+        console.log('Product updated successfully!');
+        // Handle success, maybe redirect or show a success message
+      } else {
+        console.error('Failed to update product:', response.data);
+        // Handle error, maybe show an error message
+      }
+    } catch (error) {
+      console.error('Error:', error);
+    }
     console.log(productName, price, category);
   };
 
