@@ -32,12 +32,12 @@ if(auth){
             <h6 className="nav-item">
               <Link className="nav-link ms-auto" to="/add-products">Add Products</Link>
             </h6>
-            <h6 className="nav-item">
+            {/* <h6 className="nav-item">
               <Link className="nav-link" to="/update-products">Update Products</Link>
-            </h6>
-            <h6 className="nav-item">
+            </h6> */}
+            {/* <h6 className="nav-item">
               <Link className="nav-link" to="/profile">Profile</Link>
-            </h6>
+            </h6> */}
             <h6 className="nav-item">
               <Link className="nav-link" onClick={logout} to="/signup">Logout</Link>
             </h6>
