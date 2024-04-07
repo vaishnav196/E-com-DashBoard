@@ -7,10 +7,17 @@ const UpdateProducts = () => {
   const [category, setCategory] = useState('');
   const url = "http://localhost:5000";
 
-  const UpdateProducts = async (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
-    console.log(productName,price,category);
-   
+    
+    // Check if any field is empty
+    if (!productName.trim() && !price.trim() && !category.trim()) {
+      // console.error('At least one field is required!');
+      return;
+    }
+
+    // Only proceed if any field is filled
+    console.log(productName, price, category);
   };
 
   return (
@@ -18,7 +25,7 @@ const UpdateProducts = () => {
       <h1 className='text-center'>Update Products</h1>
       <div className="row">
         <div className="col-6 d-block m-auto">
-          <form onSubmit={UpdateProducts}>
+          <form onSubmit={handleSubmit}>
             <div className="mb-3">
               <label htmlFor="productName" className="form-label">Product Name</label>
               <input
