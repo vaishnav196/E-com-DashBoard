@@ -1,5 +1,6 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 
 function Products() {
   const [products, setProducts] = useState([]);
@@ -37,6 +38,7 @@ function Products() {
       console.error("Error:", error);
     }
   };
+  
   return (
     <div>
        
@@ -49,7 +51,7 @@ function Products() {
             <th>Name</th>
             <th>Price</th>
             <th>Cateogory</th>
-            <th>operation</th>
+            <th>Operation</th>
           </tr>
         </thead>
         <tbody>
@@ -59,16 +61,13 @@ function Products() {
               <td>{product.name}</td>
               <td>${product.price}</td>
               <td>{product.category}</td>
-              <td><button className="btn btn-danger btn-sm" onClick={()=>{deleteProduct(product._id)}}>delete</button> <button className="btn btn-primary btn-sm">update</button></td>
+              <td><button className="btn btn-danger btn-sm" onClick={() => deleteProduct(product._id)}>Delete</button> <Link className="btn btn-primary btn-sm" to={"/update-products/"+product._id}>Update</Link></td>
               
             </tr>
           ))}
-        </tbody>
+        </tbody>  
       </table>
       </div>
-     
-
-     
     </div>
   );
 }
