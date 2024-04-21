@@ -61,7 +61,7 @@ function Products() {
               <td>{product.name}</td>
               <td>${product.price}</td>
               <td>{product.category}</td>
-              <td><button className="btn btn-danger btn-md" onClick={() => deleteProduct(product._id)}>Delete</button> <Link className="btn btn-primary btn-sm" to={"/update-products/"+product._id}>Update</Link></td>
+              <td><button className="btn btn-danger btn-sm" onClick={() => deleteProduct(product._id)}>Delete</button> <Link className="btn btn-primary btn-sm" to={"/update-products/"+product._id}>Update</Link></td>
               
             </tr>
           ))}
